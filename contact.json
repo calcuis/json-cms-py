@@ -1,0 +1,20 @@
+[
+    {
+        "id": "de964838-6495-40ba-bdfc-0f0e1d2cafc1",
+        "first_name": "Joe",
+        "last_name": "Biden",
+        "cell_phone": "100-675-9942"
+    },
+    {
+        "id": "762887b9-581e-4597-95a1-82ae1d687251",
+        "first_name": "Tim",
+        "last_name": "Cook",
+        "cell_phone": "648-925-0078"
+    },
+    {
+        "id": "0040a1aa-ef94-46b6-a7a2-fd42dec1f9a8",
+        "first_name": "Elon",
+        "last_name": "Musk",
+        "cell_phone": "944-989-9971"
+    }
+]

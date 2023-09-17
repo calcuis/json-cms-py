@@ -1,4 +1,4 @@
-## simple NoSQL (json) contact-list management system
+## a simple NoSQL (json) contact-list management system
 
 This Python code is a GUI application using the `tkinter` library that allows the user to manage a contact list. The application provides options to add, edit, delete, and print contacts. The contacts are stored in a JSON file named "contact.json."
 

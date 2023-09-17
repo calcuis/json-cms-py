@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-import uuid, json
+import uuid, json, os, io
 
 global my_data_list
 my_data_list = []
@@ -58,19 +58,28 @@ trv.column("#2",anchor="w", width=140, stretch=False)
 trv.column("#3",anchor="w", width=140, stretch=False)
 trv.column("#4",anchor="w", width=140, stretch=False)
 
+def startup_check():
+    if os.path.isfile('contact.json') and os.access('contact.json', os.R_OK):
+        # checks if file exists
+        print ("File exists and is readable")
+    else:
+        print ("Either file is missing or is not readable, creating file...")
+        with io.open(os.path.join('contact.json'), 'w') as db_file:
+            db_file.write(json.dumps([]))
+
 def load_json_from_file():
     global my_data_list
     with open("contact.json","r") as file_handler:
         my_data_list = json.load(file_handler)
     file_handler.close
-    print('file has been read and closed')
+    print('File has been read and closed')
 
 def save_json_to_file():
     global my_data_list
     with open("contact.json", "w") as file_handler:
         json.dump(my_data_list, file_handler, indent=4)
     file_handler.close
-    print('file has been written to and closed')
+    print('File has been written to and closed')
 
 def remove_all_data_from_trv():
     for item in trv.get_children():
@@ -242,8 +251,8 @@ btnClear.pack(side=LEFT)
 btnExit=Button(ButtonFrame,text="Exit",padx=20,pady=10,command=root.quit)
 btnExit.pack(side=LEFT)
 
+startup_check()
 load_json_from_file()
 load_trv_with_json()
-
 crm_fn.focus_set()
 root.mainloop()
